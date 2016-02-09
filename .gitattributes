@@ -1,0 +1,2 @@
+# Ensure that all line endings are only \n
+* eol=lf
