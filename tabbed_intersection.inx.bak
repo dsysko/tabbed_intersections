@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<inkscape-extension xmlns="http://www.inkscape.org/namespace/inkscape/extension">
+  <_name>Tabbed Intersection Maker</_name>
+  <id>eu.twot.render.tabbedintersection</id>
+
+  <dependency type="executable" location="extensions">tabbed_intersection.py</dependency>
+  <dependency type="executable" location="extensions">simpletransform.py</dependency>
+  <dependency type="executable" location="extensions">inkex.py</dependency>
+
+  <param name="unit" _gui-text="Unit" type="optiongroup" appearance="minimal">
+    <option value="mm">mm</option>
+    <option value="cm">cm</option>
+    <option value="in">in</option>
+  </param>
+
+  <param name="length" type="float" precision="3" min="0.0" max="10000.0" _gui-text="length">1.0</param>
+  <param name="angle" type="float" precision="3"  min="0.0" max="90.0" _gui-text="Corner Angle(inside)">90.0</param>
+  <param name="depth_plus" type="float" precision="3"  min="0.0" max="10000.0" _gui-text="Additional Depth">0.0</param>
+  <param name="tab_plus" type="float" precision="3"  min="0.0" max="10000.0" _gui-text="Additional Tab">0.0</param>
+  <param name="tab" type="float" precision="2" min="0.0" max="10000.0" _gui-text="Preferred Tab Width">1.0</param> 
+
+  <param name="equal" type="optiongroup" _gui-text="Tab Width" appearance="minimal">
+    <_option value="1">Automatic</_option>
+    <_option value="0">Fixed</_option>
+  </param>
+  
+  <param name="odd_even_tabs" type="optiongroup" _gui-text="Odd/even tab #" appearance="minimal">
+    <_option value="0">Automatic</_option>
+    <_option value="1">Odd</_option>
+    <_option value="2">Even</_option>
+  </param>
+
+  <param name="tab_count" type="int" precision="3" min="0" max="10000" _gui-text="Tab Count(0 = automatic)">1</param>
+  <param name="thickness" type="float" precision="3" min="0.0" max="10000.0" _gui-text="Material Thickness">1.0</param>
+  <param name="kerf" type="float" precision="3"  min="0.0" max="10000.0" _gui-text="Kerf (cut width)">0.1</param>
+  <param name="clearance" type="float" precision="3"  min="0.0" max="10000.0" _gui-text="Clearance">0.01</param>
+	
+  <param name="style" _gui-text="Layout/Style" type="optiongroup" appearance="minimal">
+    <option value="1">Side-By-Side</option>
+    <option value="2">In-line</option>
+  </param>
+
+  <param name="spacing" type="float" precision="3" min="0.0" max="10000.0" _gui-text="Space Between Parts">1.0</param> 
+  
+  <effect>
+    <object-type>all</object-type>
+    <effects-menu>
+      <submenu _name="Laser Tools" />
+    </effects-menu>
+  </effect>
+  <script>
+    <command reldir="extensions" interpreter="python">tabbed_intersection.py</command>
+  </script>
+</inkscape-extension>
